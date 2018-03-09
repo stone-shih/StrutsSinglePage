@@ -22,11 +22,11 @@ public class testSimpleAction  extends MockStrutsTestCase {
 
 	}
 
-	public void testSimpleActionAbbrNoData() {
+	public void testSimpleActionNoCountryData() {
 		setRequestPathInfo("/processSimple");
 		addRequestParameter("abbr", "QW");
 		actionPerform();
-		String e[] = {"errors.abbr.nodata"};
+		String e[] = {"errors.abbr.nocontinent"};
 		verifyActionErrors(e);
 
 	}
@@ -44,6 +44,18 @@ public class testSimpleAction  extends MockStrutsTestCase {
 		verifyForward("success");
 		
 	}
+	
+public void testSimpleAttrCreateSuccess() {
+		
+		setRequestPathInfo("/processSimple");
+		addRequestParameter("abbr", "EU");
+		actionPerform();
+
+		Object ll =  getRequest().getAttribute("cntryList");
+		Assert.assertNotNull(ll);
+
+		
+}
 	
 	
 
