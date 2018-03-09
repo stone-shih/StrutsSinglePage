@@ -35,6 +35,7 @@
 <hr noshade="noshade"/>
 
 <%
+
 ArrayList	cntryList	=	(ArrayList) request.getAttribute("cntryList");
 
 for(int i=0; i< cntryList.size(); i++){

@@ -95,8 +95,10 @@ public class SimpleActionForm extends ActionForm {
         	ContinentDao	cDao = new ContinentDao();
 
         	if ( cDao.findByAbbr(abbr).size() == 0 ) {
-        		 errors.add("abbr", new ActionMessage("errors.abbr.required"));
+        		 errors.add("abbr", new ActionMessage("errors.abbr.nodata"));
         	}
+        	
+        	
         }
 
         return (errors);

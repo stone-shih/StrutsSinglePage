@@ -30,9 +30,11 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 import com.island.stone.pojo.ContCountry;
 import com.island.stone.pojo.dao.ContCountryDao;
+import com.island.stone.pojo.dao.ContinentDao;
 
 /**
  * Retrieve and process data from the submitted form
@@ -85,7 +87,8 @@ public class ProcessSimpleAction extends Action {
         SimpleActionForm 	f		= (SimpleActionForm)	form;
         ContCountryDao		ccDao 	= 	new ContCountryDao();
         List<ContCountry>	cntry	=	ccDao.findByContAbbr(f.getAbbr());	        
-        
+
+    	
         request.setAttribute("cntryList", cntry);
         
         // Forward to result page
